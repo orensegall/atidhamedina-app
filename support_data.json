@@ -1,0 +1,21 @@
+{
+    "keywords": {
+        "lonely": [
+            "Connecting with others is important. Try reaching out to a friend or loved one and share how you're feeling."
+        ],
+        "anxious": [
+            "Slow, deep breaths can reduce anxiety. Mindfulness practices have been shown to help calm racing thoughts."
+        ],
+        "angry": [
+            "Pausing to reflect before reacting may ease anger. Journaling or a calming activity can help process these feelings."
+        ],
+        "sad": [
+            "It's okay to feel sad. Consider talking with someone you trust or engaging in an activity you enjoy to lift your mood."
+        ]
+    },
+    "default": [
+        "Writing down your thoughts can provide clarity and relief.",
+        "Sharing your experiences with a supportive friend often helps lessen emotional burden.",
+        "Practicing relaxation techniques like deep breathing can reduce stress."
+    ]
+}
