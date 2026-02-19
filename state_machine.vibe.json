@@ -1,0 +1,38 @@
+{
+  "machine": "CommunityHouseQuest",
+  "initial": "S0_Lobby_Onboarding",
+  "globals": {
+    "stress_level": {"type": "int", "min": 1, "max": 10},
+    "loneliness_level": {"type": "int", "min": 1, "max": 10},
+    "mode": {"type": "enum", "values": ["Guided", "Solo"]},
+    "needs_admin": {"type": "bool"},
+    "trigger_sensitive": {"type": "bool"},
+    "session_timer_minutes": {"type": "int", "min": 0, "max": 30},
+    "scorecard": {"type": "object"}
+  },
+  "states": {
+    "S0_Lobby_Onboarding": {"next": ["S1_Regulation_Breath"]},
+    "S1_Regulation_Breath": {"next": ["S2_Grounding_Body", "S3_Belonging_Circle"]},
+    "S2_Grounding_Body": {"next": ["S3_Belonging_Circle", "S4_Boundaries_Skills"]},
+    "S3_Belonging_Circle": {"next": ["S4_Boundaries_Skills", "S5_Decision_Room"]},
+    "S4_Boundaries_Skills": {"next": ["S5_Decision_Room", "S6_Meaning_Room"]},
+    "S5_Decision_Room": {"next": ["S6_Meaning_Room", "S7_ChemEdu_ExitScore"]},
+    "S6_Meaning_Room": {"next": ["S7_ChemEdu_ExitScore"]},
+    "S7_ChemEdu_ExitScore": {"terminal": true}
+  },
+  "globalTransitions": [
+    {
+      "when": "stress_level >= 8",
+      "offerTeleport": "S1_Regulation_Breath"
+    },
+    {
+      "when": "session_timer_minutes >= 30",
+      "forceTransition": "S7_ChemEdu_ExitScore"
+    }
+  ],
+  "uiAlwaysOn": ["self_mute", "call_admin"],
+  "triggerWarningGate": {
+    "before": ["S7_ChemEdu_ExitScore"],
+    "actions": ["ENTER_ANYWAY", "SKIP_TO_S1"]
+  }
+}
