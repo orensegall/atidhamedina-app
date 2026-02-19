@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community House VR - Quest Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header card">
+      <h1>בית קהילתי VR (Quest) — Comfort First</h1>
+      <div class="top-actions">
+        <button id="muteBtn" class="secondary">🔇 שקט עצמי: כבוי</button>
+        <button id="adminBtn" class="danger">📣 קריאה לאדמין</button>
+        <label class="inline">
+          מצב:
+          <select id="modeSelect">
+            <option value="Guided">Guided</option>
+            <option value="Solo">Solo</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <section class="grid">
+      <aside class="card panel">
+        <h2>סטטוס סשן</h2>
+        <p><strong>כינוי:</strong> <span id="nickname"></span></p>
+        <p><strong>אווטאר:</strong> <span id="avatar"></span></p>
+        <p><strong>מצב נוכחי:</strong> <span id="stateLabel"></span></p>
+        <p><strong>זמן:</strong> <span id="timerLabel">00:00</span> / 30:00</p>
+        <label>עומס (1-10): <input id="stressInput" type="range" min="1" max="10" value="5" /></label>
+        <span id="stressValue">5</span>
+        <label>בדידות (1-10): <input id="lonelyInput" type="range" min="1" max="10" value="5" /></label>
+        <span id="lonelyValue">5</span>
+        <label class="inline">
+          רגישות טריגר:
+          <input id="triggerInput" type="checkbox" />
+        </label>
+        <label class="inline">
+          עד 8 משתמשים:
+          <input id="participantsInput" type="number" min="1" max="8" value="4" />
+        </label>
+      </aside>
+
+      <main class="card main-panel">
+        <h2 id="roomTitle"></h2>
+        <p id="roomGoal"></p>
+        <ul id="roomFeatures"></ul>
+        <div id="npcBox" class="npc"></div>
+
+        <div class="portal-row">
+          <button id="prevBtn" class="secondary">⬅ חדר קודם</button>
+          <button id="nextBtn">חדר הבא ➡</button>
+          <button id="teleportBreathBtn" class="secondary">🫁 טלפורט לחדר נשימה</button>
+        </div>
+      </main>
+
+      <aside class="card panel">
+        <h2>כללי בית</h2>
+        <ol>
+          <li>בלי שיפוט</li>
+          <li>בלי הסתה / אלימות / שנאה</li>
+          <li>בלי מיניות</li>
+          <li>בלי מכירות / שיווק</li>
+          <li>בלי הדרכה רפואית</li>
+        </ol>
+        <h3>לוג אירועים</h3>
+        <div id="eventLog" class="log"></div>
+      </aside>
+    </section>
+
+    <section class="card scorecard" id="scorecardSection" hidden>
+      <h2>כרטיס סיכום יציאה לעולם</h2>
+      <div id="scorecard"></div>
+    </section>
+  </div>
+
+  <dialog id="triggerDialog">
+    <h3>אזהרת רגישות</h3>
+    <p>התוכן הבא עלול להציף רגשית.</p>
+    <div class="portal-row">
+      <button id="enterSensitiveBtn">אני נכנס/ת</button>
+      <button id="skipSensitiveBtn" class="secondary">דלג לחדר נשימה</button>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
